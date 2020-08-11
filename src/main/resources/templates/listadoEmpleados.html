@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div>
+	<p th:text="${success}"></p>
+</div>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>Edad</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			
+			</tr>
+		
+		</thead>
+		
+		<tbody>
+		
+		<a th:href="@{/form}"><button>Agregar</button></a>
+			<tr th:each="item : ${empleados}">
+			<td th:text="${item.nombre}"></td>
+				<td th:text="${item.apellidos}"></td>
+				<td th:text="${item.edad}"></td>
+				<td>
+					<a th:href="@{/detalles/} + ${item.id}">Detalles</a>
+				
+				</td>
+				
+				<td>
+					<a th:href="@{/delete/} + ${item.id}">Eliminar</a>
+				
+				</td>
+				
+				<td>
+					<a th:href="@{/update/} + ${item.id}">Editar</a>
+				
+				</td>
+			
+			</tr>
+		
+		
+		</tbody>
+	
+	
+	</table>
+
+</body>
+</html>

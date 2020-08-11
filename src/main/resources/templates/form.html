@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div>
+		<p th:text="${success}"></p>
+
+	</div>
+	
+	<div>
+		<p th:text="${error}"></p>
+	
+	</div>
+
+		<form th:action="@{/form}" th:object="${empleado}" method="POST" >
+		<input type="text" th:field="*{nombre}" placeholder="nombre"  />
+		<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+		
+		<br />
+		
+		<input type="text" th:field="*{apellidos}" placeholder="apellidos"  />
+		<small th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></small>
+		
+		<br />
+		
+		
+		<input type="text" th:field="*{edad}" placeholder="edad" />
+		<small th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
+		
+		
+		
+		<br />
+		
+		<input type="submit" value="guardar" />
+		
+ 		</form>
+
+</body>
+</html>
